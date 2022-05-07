@@ -1,7 +1,7 @@
 <template>
   <el-container class="home-container">
     <!-- 头部区 -->
-    <el-header>
+    <el-header style=" background-color: #a6a8;">
       <div class="avatar_header">
         <img src="../assets/123.png" alt="" /><span>电商后台管理系统</span>
       </div>
@@ -10,18 +10,27 @@
     <!-- 页面主题区 -->
     <el-container>
       <!-- 页面侧边栏 -->
-      <el-aside :width="isCollapse ? '64px' : '200px'">
-        <div class="toggle-button" @click="toggleCollapse">|||</div>
+      <el-aside
+        :width="isCollapse ? '64px' : '200px'"
+        style=" background-color: #a6a8b1;"
+      >
+        <div
+          class="toggle-button"
+          @click="toggleCollapse"
+          style=" background-color: #a6a8d9;"
+        >
+          |||
+        </div>
         <!-- 侧边栏菜单区 -->
         <el-menu
-          background-color="#545c64"
+          background-color="#5a6a81"
           text-color="#fff"
           active-text-color="#409eff"
           unique-opened
           :collapse="isCollapse"
           :collapse-transition="false"
           router
-         :default-active="activePath"
+          :default-active="activePath"
         >
           <el-submenu
             :index="item.id + ''"
@@ -37,7 +46,7 @@
               :index="'/' + subItem.path + ''"
               v-for="subItem in item.children"
               :key="subItem.id"
-             @click="saveNavState('/' + subItem.path)"
+              @click="saveNavState('/' + subItem.path)"
               ><template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>{{ subItem.authName }} </span>
@@ -67,7 +76,6 @@ export default {
       activePath: '',
       isCollapse: false
       // 被激活的链接地址
-
     }
   },
   created() {
@@ -136,5 +144,11 @@ export default {
   text-align: center;
   letter-spacing: 0.2em;
   cursor: pointer;
+}
+
+element.style {
+  height: 60px;
+  /* color: blue; */
+  background-color: blue;
 }
 </style>
